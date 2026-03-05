@@ -1,8 +1,6 @@
 name = "canto-dashboard"
 compatibility_date = "2026-03-05"
 
-[site]
-bucket = "."
-
 [pages]
 project_name = "canto-dashboard"
+build_output_dir = "."
