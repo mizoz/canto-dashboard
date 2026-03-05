@@ -30,20 +30,45 @@ Simply open `index.html` in any modern browser.
 
 ## Deployment
 
-### Vercel (Recommended)
+### Cloudflare Pages (Recommended)
 
-1. Install Vercel CLI:
+**Prerequisites:**
+- Cloudflare account
+- Wrangler CLI installed: `npm install -g wrangler`
+- Cloudflare API token with Pages permissions
+
+**One-Time Setup:**
+
+1. Create Cloudflare Pages project:
    ```bash
-   npm i -g vercel
+   wrangler pages project create canto-dashboard
    ```
 
-2. Deploy:
-   ```bash
-   cd /home/az/.openclaw/workspace/canto-review/gui
-   vercel --prod
-   ```
+2. Set up Cloudflare API token as GitHub secret:
+   - Go to https://github.com/mizoz/canto-dashboard/settings/secrets/actions/new
+   - Add secret: `CLOUDFLARE_API_TOKEN`
+   - Value: Your Cloudflare API token (Pages:Edit permission)
 
-3. That's it! Your dashboard is live.
+**Deploy Options:**
+
+**Option A: Manual Deploy**
+```bash
+cd /home/az/.openclaw/workspace/canto-review/gui
+npm run deploy
+# or
+npx wrangler pages deploy . --project-name=canto-dashboard
+```
+
+**Option B: CI/CD (Automatic)**
+- Push to `main` branch → GitHub Actions deploys automatically
+- Workflow: `.github/workflows/deploy.yml`
+
+**Option C: Local Preview**
+```bash
+npm run dev
+# or
+npx wrangler pages dev .
+```
 
 ### Netlify
 
@@ -53,7 +78,7 @@ Simply open `index.html` in any modern browser.
 
 1. Push to a GitHub repository
 2. Enable GitHub Pages in repository settings
-3. Select branch (main/master) and `/gui` folder
+3. Select branch (main/master) and root folder
 
 ### Static Hosting (Any Provider)
 

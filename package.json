@@ -1,0 +1,12 @@
+{
+  "name": "canto-dashboard",
+  "version": "1.0.0",
+  "description": "Canto DAM Dashboard - Digital Asset Management Analytics",
+  "scripts": {
+    "deploy": "npx wrangler pages deploy . --project-name=canto-dashboard",
+    "dev": "npx wrangler pages dev ."
+  },
+  "keywords": ["canto", "dam", "dashboard", "analytics"],
+  "author": "AZ",
+  "license": "MIT"
+}
